@@ -16,5 +16,7 @@ RUN micromamba shell init --shell bash
 
 RUN ln -s ./mamba.sh /opt/conda/etc/profile.d/micromamba.sh && \
     bash -c ". ~/.bashrc && ./adcpsuite.sh" && \
-    bash -c "curl -v https://ccsb.scripps.edu/mamba/pip/py37/" && \
-    bash -c "curl -v https://ccsb.scripps.edu/mamba/pip/py37/legacy"
+    echo "\n Test https://ccsb.scripps.edu/mamba/pip/py37/ \n" && \
+    bash -c "curl -Lv https://ccsb.scripps.edu/mamba/pip/py37/" && \
+    echo "\n Test https://ccsb.scripps.edu/mamba/pip/py37/legacy \n" && \
+    bash -c "curl -Lv https://ccsb.scripps.edu/mamba/pip/py37/legacy"
